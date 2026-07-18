@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cresca — Google Ads management and API tooling | Sunam Taran</title>
+<meta name="description" content="Cresca is the practice of Sunam Taran, an independent Google Ads specialist in Assam, India. Google Ads campaign management, supported by an internal tool built on the Google Ads API.">
+<link rel="canonical" href="https://cresca.agency/">
+<style>
+  :root{
+    --ink:#12161c; --body:#3d4654; --mut:#6b7686; --acc:#1f5fd6;
+    --line:#e3e7ed; --soft:#f6f8fa; --bg:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--body); background:var(--bg); -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{color:var(--ink);letter-spacing:-.015em;line-height:1.25}
+  a{color:var(--acc)}
+  code{font:400 14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--soft);
+       border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:#0f172a}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);
+         backdrop-filter:saturate(180%) blur(8px);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:650;color:var(--ink);text-decoration:none;font-size:19px;letter-spacing:-.02em}
+  .logo span{color:var(--acc)}
+  .nav ul{display:flex;gap:26px;list-style:none}
+  .nav a{color:var(--mut);text-decoration:none;font-size:14.5px}
+  .nav a:hover{color:var(--ink)}
+  @media(max-width:640px){.nav ul{display:none}}
+
+  .hero{padding:84px 0 64px;border-bottom:1px solid var(--line)}
+  .hero h1{font-size:41px;font-weight:680;margin-bottom:20px}
+  .hero p{font-size:19px;max-width:620px;margin-bottom:14px}
+  .meta{color:var(--mut);font-size:15px;margin-top:26px}
+
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .kicker{color:var(--acc);font-size:13px;font-weight:640;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px}
+  section h2{font-size:27px;font-weight:660;margin-bottom:18px}
+  section p{margin-bottom:14px}
+  section p:last-child{margin-bottom:0}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:9px;padding:20px;background:var(--bg)}
+  .card h3{font-size:16px;font-weight:640;margin-bottom:7px}
+  .card p{font-size:15px;color:var(--mut);margin:0}
+
+  table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--soft);color:var(--ink);font-weight:640;font-size:13.5px}
+  td:first-child{white-space:nowrap}
+  td code{background:none;border:none;padding:0}
+
+  .note{background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--acc);
+        border-radius:0 8px 8px 0;padding:18px 20px;margin-top:26px}
+  .note p{font-size:15.5px;margin:0}
+
+  footer{padding:44px 0 60px;color:var(--mut);font-size:14.5px}
+  footer p{margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">cresca<span>.</span></a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tool">The tool</a></li>
+      <li><a href="#api">API services</a></li>
+      <li><a href="#model">Business model</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>Google Ads management, and the tooling behind it.</h1>
+  <p>Cresca plans, builds and manages Google Ads campaigns for client accounts — supported by an
+     internal tool built directly on the Google Ads API.</p>
+  <p class="meta">Cresca is the practice of <strong>Sunam Taran</strong>, an independent Google Ads
+     specialist based in Assam, India. One operator, no company, no team. Every account handled
+     personally.</p>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="kicker">Services</div>
+    <h2>What I do for clients</h2>
+    <p>I take on a small number of Google Ads accounts and manage them end to end. There is no team
+       the work gets passed down to — it's me.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Campaign build &amp; launch</h3>
+        <p>Account structure, campaign and ad group architecture, keyword sets, budgets and bid
+           configuration for Search campaigns.</p>
+      </div>
+      <div class="card">
+        <h3>Ongoing management</h3>
+        <p>Search term review, negative keyword maintenance, bid and budget adjustment, iteration
+           against live performance.</p>
+      </div>
+      <div class="card">
+        <h3>Keyword research</h3>
+        <p>Keyword ideas, historical search volume and forecasts — sized against data before the
+           campaign is built rather than guessed.</p>
+      </div>
+      <div class="card">
+        <h3>Performance analysis</h3>
+        <p>Campaign, ad group, keyword and search term analysis — read from the Google Ads API rather
+           than re-keyed by hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tool">
+  <div class="wrap">
+    <div class="kicker">The Google Ads API tool</div>
+    <h2>An internal tool, built for this practice</h2>
+    <p>I built and operate a tool on the Google Ads API to support the account work above. It is a
+       Model Context Protocol (MCP) server that connects the API to Claude, so the accounts I manage
+       can be queried, analysed and changed conversationally instead of assembled by hand.</p>
+    <p>It is written in Python on Google's official <code>google-ads</code> client library
+       (31.1.0, API v24), and authenticates as me over OAuth 2.0. The source is public:
+       <a href="https://github.com/sunamtaran92-a11y/google-ads-api-tools">github.com/sunamtaran92-a11y/google-ads-api-tools</a></p>
+
+    <div class="note">
+      <p><strong>Internal only.</strong> I am the tool's only user. Clients do not log into it, it is
+         not sold, licensed or offered for sign-up, and it has no public interface. Every account it
+         addresses is one I already hold access to, linked under my Google Ads manager account
+         624-846-9807. It reads only data I can already see in the Google Ads interface.</p>
+    </div>
+
+    <h2 style="font-size:20px;margin-top:40px;margin-bottom:8px">What it does</h2>
+    <p>19 tools across 8 API services. Nine read, eight stage a change, one applies a staged change,
+       one lists what is staged.</p>
+    <table>
+      <thead><tr><th>Capability</th><th>What it covers</th></tr></thead>
+      <tbody>
+        <tr><td>Reporting</td><td>Campaign performance, budget pacing, ad disapprovals, search terms, and arbitrary GAQL — SELECT statements only.</td></tr>
+        <tr><td>Keyword planning</td><td>Keyword ideas, historical search volume and competition, and click / cost / conversion forecasts.</td></tr>
+        <tr><td>Campaign management</td><td>Campaign and keyword status, daily budgets, campaign-level negative keywords.</td></tr>
+        <tr><td>Campaign creation</td><td>Search campaigns — budget, campaign, ad group and keywords. Created paused, with no ads, so nothing serves until it is reviewed.</td></tr>
+        <tr><td>Account creation</td><td>New client accounts under the manager account.</td></tr>
+        <tr><td>Account management</td><td>Account name and auto-tagging settings.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="font-size:20px;margin-top:40px;margin-bottom:8px">Every write is gated</h2>
+    <p>Nothing in the tool changes an account directly. A <code>propose_*</code> tool validates the
+       request, builds a plan, and returns it with a single-use confirmation token — writing nothing.
+       Only <code>apply_change</code> mutates, and only for a plan a <code>propose_*</code> staged.
+       Tokens expire after ten minutes and cannot be replayed.</p>
+    <p>An LLM proposing a change is useful. An LLM applying one to a live client account unreviewed is
+       a different risk class. So a human sees every plan before it executes.</p>
+  </div>
+</section>
+
+<section id="api">
+  <div class="wrap">
+    <div class="kicker">API services</div>
+    <h2>What the tool calls</h2>
+    <p>This is the complete list, and it is verifiable against the published source.</p>
+    <table>
+      <thead><tr><th>Service</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td><code>GoogleAdsService</code></td><td>GAQL queries via SearchStream. Read-only.</td></tr>
+        <tr><td><code>CustomerService</code></td><td>Listing accessible accounts; creating a client account; account name and auto-tagging.</td></tr>
+        <tr><td><code>CampaignService</code></td><td>Campaign creation and status.</td></tr>
+        <tr><td><code>CampaignBudgetService</code></td><td>Budget creation and daily budgets.</td></tr>
+        <tr><td><code>AdGroupService</code></td><td>Ad group creation.</td></tr>
+        <tr><td><code>AdGroupCriterionService</code></td><td>Keyword creation and status.</td></tr>
+        <tr><td><code>CampaignCriterionService</code></td><td>Campaign negative keywords.</td></tr>
+        <tr><td><code>KeywordPlanIdeaService</code></td><td>Keyword ideas, historical metrics, forecasts. Read-only.</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:18px">Nothing beyond these eight. The tool does not use the App Conversion
+       Tracking and Remarketing API.</p>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <div class="kicker">Business model</div>
+    <h2>How the practice makes money</h2>
+    <p>Clients pay me a management fee to plan and run their Google Ads campaigns. That fee is the
+       whole of the revenue.</p>
+    <p>The tool is not a product. It is not sold, licensed, resold or offered to clients or to the
+       public, it carries no pricing, and no sign-up exists for it. Its value is realised indirectly,
+       through the quality and speed of the account management it supports.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker">Contact</div>
+    <h2>Get in touch</h2>
+    <p>Sunam Taran — <a href="mailto:sunamtaran92@gmail.com">sunamtaran92@gmail.com</a></p>
+    <p>Assam, India</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">Cresca</strong> — the independent Google Ads practice of Sunam Taran.</p>
+    <p>Google Ads manager account 624-846-9807. Source code:
+       <a href="https://github.com/sunamtaran92-a11y/google-ads-api-tools">github.com/sunamtaran92-a11y/google-ads-api-tools</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

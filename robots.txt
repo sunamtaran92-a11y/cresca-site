@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cresca.agency/sitemap.xml
