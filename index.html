@@ -3,217 +3,442 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cresca — Google Ads management and API tooling | Sunam Taran</title>
-<meta name="description" content="Cresca is the practice of Sunam Taran, an independent Google Ads specialist in Assam, India. Google Ads campaign management, supported by a private tool built on the Google Ads API.">
+<title>Cresca — One senior team for ads, data & content</title>
+<meta name="description" content="Cresca is three specialists — performance marketing, data-level PPC audits and video — who came together so you stop juggling freelancers. One calm team for Google Ads, SEO, analytics and content.">
 <link rel="canonical" href="https://cresca.agency/">
+<meta property="og:title" content="Cresca — One senior team for ads, data & content">
+<meta property="og:description" content="Three specialists, one team. Google Ads, data-level PPC audits, SEO and video — without the agency layers or the vendor juggling.">
+<meta property="og:url" content="https://cresca.agency/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#12161c; --body:#3d4654; --mut:#6b7686; --acc:#1f5fd6;
-    --line:#e3e7ed; --soft:#f6f8fa; --bg:#fff;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--body); background:var(--bg); -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
-  h1,h2,h3{color:var(--ink);letter-spacing:-.015em;line-height:1.25}
-  a{color:var(--acc)}
-  code{font:400 14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--soft);
-       border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:#0f172a}
+:root{
+  --bg:#07080b; --bg2:#0b0d12; --ink:#f4f6fb; --mut:#9aa3b2; --dim:#6b7280;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.06);
+  --glass:rgba(255,255,255,.035); --glass2:rgba(255,255,255,.05);
+  --acc:#8ea2ff; --acc2:#c9a6ff; --em:#7fe0c2; --warn:#ffcf8b;
+  --disp:'Space Grotesk',sans-serif; --body:'Plus Jakarta Sans',sans-serif; --ser:'Fraunces',serif;
+  --e:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);background:var(--bg);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* ambient mesh glows */
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.orb.a{width:52vw;height:52vw;left:-14vw;top:-12vw;background:radial-gradient(circle,rgba(110,130,255,.42),transparent 62%)}
+.orb.b{width:46vw;height:46vw;right:-12vw;top:14vw;background:radial-gradient(circle,rgba(180,130,255,.30),transparent 62%)}
+.orb.c{width:44vw;height:44vw;left:26vw;top:150vh;background:radial-gradient(circle,rgba(120,225,190,.20),transparent 64%)}
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+@media(max-width:640px){.wrap{padding:0 18px}}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.03em;line-height:1.04}
+.ser{font-family:var(--ser);font-weight:400;font-style:italic;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.22em;color:var(--mut);
+  border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:7px 14px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--em);box-shadow:0 0 10px var(--em)}
 
-  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);
-         backdrop-filter:saturate(180%) blur(8px);z-index:10}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-weight:650;color:var(--ink);text-decoration:none;font-size:19px;letter-spacing:-.02em}
-  .logo span{color:var(--acc)}
-  .nav ul{display:flex;gap:26px;list-style:none}
-  .nav a{color:var(--mut);text-decoration:none;font-size:14.5px}
-  .nav a:hover{color:var(--ink)}
-  @media(max-width:640px){.nav ul{display:none}}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:center;padding:18px}
+.navpill{display:flex;align-items:center;gap:26px;padding:10px 12px 10px 22px;border-radius:999px;
+  background:rgba(12,14,20,.6);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06)}
+.brand{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.brand b{color:var(--acc)}
+.navlinks{display:flex;gap:22px}
+.navlinks a{font-size:14px;color:var(--mut);transition:color .4s var(--e)}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:14px;
+  border-radius:999px;padding:11px 12px 11px 20px;cursor:pointer;border:0;
+  background:var(--ink);color:#0a0b0f;transition:transform .5s var(--e),background .4s var(--e)}
+.btn .ic{width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;
+  transition:transform .5s var(--e)}
+.btn:hover{transform:translateY(-1px)}
+.btn:hover .ic{transform:translate(3px,-2px)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--glass2);color:var(--ink);border:1px solid var(--line)}
+.btn.ghost .ic{background:rgba(255,255,255,.08)}
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--glass);
+  cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;width:18px;height:1.6px;background:var(--ink);transition:.45s var(--e)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:23px}
+.burger.open span:nth-child(1){top:20px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:20px;transform:rotate(-45deg)}
+.mobmenu{position:fixed;inset:0;z-index:39;background:rgba(7,8,11,.86);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+  display:flex;flex-direction:column;justify-content:center;gap:8px;padding:40px;opacity:0;pointer-events:none;transition:opacity .5s var(--e)}
+.mobmenu.open{opacity:1;pointer-events:auto}
+.mobmenu a{font-family:var(--disp);font-size:34px;font-weight:600;letter-spacing:-.03em;color:var(--ink);
+  transform:translateY(24px);opacity:0;transition:.6s var(--e)}
+.mobmenu.open a{transform:translateY(0);opacity:1}
+.mobmenu.open a:nth-child(1){transition-delay:.06s}.mobmenu.open a:nth-child(2){transition-delay:.12s}
+.mobmenu.open a:nth-child(3){transition-delay:.18s}.mobmenu.open a:nth-child(4){transition-delay:.24s}
+.mobmenu.open a:nth-child(5){transition-delay:.30s}
+@media(max-width:860px){.navlinks,.navpill .btn{display:none}.burger{display:block}}
 
-  .hero{padding:84px 0 64px;border-bottom:1px solid var(--line)}
-  .hero h1{font-size:41px;font-weight:680;margin-bottom:20px}
-  .hero p{font-size:19px;max-width:620px;margin-bottom:14px}
-  .meta{color:var(--mut);font-size:15px;margin-top:26px}
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity .9s var(--e),transform .9s var(--e),filter .9s var(--e)}
+.rv.in{opacity:1;transform:none;filter:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}*{scroll-behavior:auto}}
+/* section rhythm */
+section{position:relative;z-index:1}
+.pad{padding:120px 0}
+.pad-s{padding:88px 0}
+@media(max-width:640px){.pad{padding:80px 0}.pad-s{padding:60px 0}}
+.sechead{max-width:720px;margin-bottom:56px}
+.sechead h2{font-size:clamp(30px,5vw,50px);margin:18px 0 0}
+.sechead p{color:var(--mut);font-size:17px;margin-top:18px;max-width:600px}
 
-  section{padding:60px 0;border-bottom:1px solid var(--line)}
-  .kicker{color:var(--acc);font-size:13px;font-weight:640;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px}
-  section h2{font-size:27px;font-weight:660;margin-bottom:18px}
-  section p{margin-bottom:14px}
-  section p:last-child{margin-bottom:0}
+/* hero */
+.hero{min-height:100dvh;display:flex;align-items:center;padding-top:120px}
+.hero h1{font-size:clamp(42px,8.5vw,92px);letter-spacing:-.04em}
+.hero h1 .ser{color:var(--acc2)}
+.hero .sub{color:var(--mut);font-size:clamp(16px,2.2vw,20px);max-width:560px;margin-top:26px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.trio{display:flex;align-items:center;gap:0;margin-top:44px}
+.trio .av{width:46px;height:46px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;
+  display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:600;font-size:15px;color:#0a0b0f}
+.trio .av:first-child{margin-left:0}
+.trio .t1{background:linear-gradient(135deg,#9db2ff,#7f8fff)}
+.trio .t2{background:linear-gradient(135deg,#7fe0c2,#57c6a4)}
+.trio .t3{background:linear-gradient(135deg,#e6b8ff,#c58bff)}
+.trio .lbl{margin-left:16px;font-size:13.5px;color:var(--mut)}
+.trio .lbl b{color:var(--ink);font-weight:600}
 
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
-  @media(max-width:640px){.grid{grid-template-columns:1fr}}
-  .card{border:1px solid var(--line);border-radius:9px;padding:20px;background:var(--bg)}
-  .card h3{font-size:16px;font-weight:640;margin-bottom:7px}
-  .card p{font-size:15px;color:var(--mut);margin:0}
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:70px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:22px 22px 20px;border-radius:20px;border:1px solid var(--line2);background:var(--glass)}
+.stat .n{font-family:var(--disp);font-weight:600;font-size:30px;letter-spacing:-.03em}
+.stat .n span{color:var(--acc)}
+.stat .l{color:var(--mut);font-size:13px;margin-top:6px;line-height:1.4}
 
-  table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
-  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{background:var(--soft);color:var(--ink);font-weight:640;font-size:13.5px}
-  td:first-child{white-space:nowrap}
-  td code{background:none;border:none;padding:0}
+/* double-bezel card */
+.shell{border-radius:26px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:7px;
+  transition:transform .6s var(--e),border-color .6s var(--e)}
+.shell:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.16)}
+.core{border-radius:20px;background:var(--bg2);border:1px solid var(--line2);padding:26px;height:100%;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 
-  .note{background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--acc);
-        border-radius:0 8px 8px 0;padding:18px 20px;margin-top:26px}
-  .note p{font-size:15.5px;margin:0}
+/* problem */
+.problem{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center}
+@media(max-width:860px){.problem{grid-template-columns:1fr}}
+.painlist{display:grid;gap:12px}
+.pain{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:16px;
+  border:1px solid var(--line2);background:var(--glass)}
+.pain .x{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:rgba(255,140,140,.12);
+  border:1px solid rgba(255,140,140,.3);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pain .x svg{width:11px;height:11px;stroke:#ff9b9b}
+.pain p{font-size:14.5px;color:var(--mut)}
+.pain p b{color:var(--ink);font-weight:600}
+.big-quote{font-family:var(--ser);font-style:italic;font-size:clamp(24px,3.4vw,34px);line-height:1.32;letter-spacing:-.01em}
+.big-quote span{color:var(--acc2)}
 
-  footer{padding:44px 0 60px;color:var(--mut);font-size:14.5px}
-  footer p{margin-bottom:6px}
+/* how we work */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step .k{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--acc);letter-spacing:.1em}
+.step h3{font-size:21px;margin:14px 0 10px}
+.step p{color:var(--mut);font-size:14.5px}
+
+/* services bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.svc{grid-column:span 2}
+.svc.wide{grid-column:span 3}
+.svc.hero-svc{grid-column:span 6}
+@media(max-width:860px){.bento{grid-template-columns:1fr}.svc,.svc.wide,.svc.hero-svc{grid-column:span 1}}
+.svc .core{display:flex;flex-direction:column;gap:12px}
+.svc .icn{width:44px;height:44px;border-radius:13px;border:1px solid var(--line);background:var(--glass2);
+  display:flex;align-items:center;justify-content:center}
+.svc .icn svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.4}
+.svc h3{font-size:19px}
+.svc p{color:var(--mut);font-size:14px}
+.svc .tag{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--em);font-weight:600}
+.hero-svc .core{flex-direction:row;align-items:center;gap:26px;flex-wrap:wrap}
+.hero-svc .txt{flex:1 1 320px}
+.hero-svc h3{font-size:26px;margin-bottom:8px}
+.hero-svc .metric{display:flex;gap:26px;flex-wrap:wrap}
+.hero-svc .metric div .n{font-family:var(--disp);font-weight:600;font-size:26px;color:var(--warn)}
+.hero-svc .metric div .l{font-size:12px;color:var(--mut)}
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:960px){.team{grid-template-columns:1fr}}
+.person .core{display:flex;flex-direction:column;gap:16px;padding:28px}
+.person .top{display:flex;align-items:center;gap:14px}
+.person .ring{width:58px;height:58px;border-radius:50%;padding:2px;flex:0 0 58px}
+.person .ring .in{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--disp);font-weight:700;font-size:20px;color:#0a0b0f}
+.person.p1 .ring{background:linear-gradient(135deg,#9db2ff,#7f8fff)}.person.p1 .ring .in{background:linear-gradient(135deg,#9db2ff,#7f8fff)}
+.person.p2 .ring{background:linear-gradient(135deg,#7fe0c2,#57c6a4)}.person.p2 .ring .in{background:linear-gradient(135deg,#7fe0c2,#57c6a4)}
+.person.p3 .ring{background:linear-gradient(135deg,#e6b8ff,#c58bff)}.person.p3 .ring .in{background:linear-gradient(135deg,#e6b8ff,#c58bff)}
+.person .nm{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.02em}
+.person .rl{font-size:12.5px;color:var(--mut)}
+.person .desc{font-size:14px;color:var(--mut);line-height:1.6}
+.person .desc b{color:var(--ink);font-weight:600}
+.person .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.person .chip{font-size:11px;color:var(--mut);border:1px solid var(--line2);background:var(--glass);
+  border-radius:999px;padding:5px 11px}
+.person .facts{display:flex;gap:20px;padding-top:14px;border-top:1px solid var(--line2)}
+.person .facts div .n{font-family:var(--disp);font-weight:600;font-size:19px}
+.person .facts div .l{font-size:11px;color:var(--dim)}
+.person .link{margin-top:auto;font-size:13px;color:var(--acc);display:inline-flex;align-items:center;gap:6px}
+.person .link svg{width:13px;height:13px;stroke:var(--acc);fill:none;stroke-width:1.5;transition:transform .4s var(--e)}
+.person .link:hover svg{transform:translate(2px,-2px)}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.proof{grid-template-columns:1fr}}
+.quote .core{display:flex;flex-direction:column;gap:16px;min-height:100%}
+.quote .stars{color:var(--warn);font-size:13px;letter-spacing:2px}
+.quote p{font-size:14.5px;color:var(--ink);line-height:1.6;flex:1}
+.quote .by{font-size:12.5px;color:var(--mut)}
+.quote .by b{color:var(--ink);font-weight:600;font-family:var(--disp)}
+
+/* contact */
+.contact{border-radius:30px;overflow:hidden;position:relative}
+.contact .core{padding:56px;text-align:center;background:radial-gradient(120% 140% at 50% 0%,rgba(110,130,255,.16),transparent 60%),var(--bg2)}
+.contact h2{font-size:clamp(30px,5vw,52px)}
+.contact p{color:var(--mut);font-size:17px;margin:18px auto 30px;max-width:520px}
+.contact .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact .mails{margin-top:26px;font-size:13px;color:var(--dim);display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.contact .mails a{color:var(--mut);transition:color .3s}
+.contact .mails a:hover{color:var(--acc)}
+@media(max-width:640px){.contact .core{padding:40px 24px}}
+
+/* footer */
+footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand{font-size:17px}
+.foot .fl{display:flex;gap:20px;font-size:13px;color:var(--mut)}
+.foot .cr{font-size:12.5px;color:var(--dim)}
 </style>
 </head>
 <body>
+<div class="mesh"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="/">cresca<span>.</span></a>
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#tool">The tool</a></li>
-      <li><a href="#api">API services</a></li>
-      <li><a href="#model">Business model</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+<nav class="nav">
+  <div class="navpill">
+    <a class="brand" href="#top">cresca<b>.</b></a>
+    <div class="navlinks">
+      <a href="#problem">Why Cresca</a>
+      <a href="#services">Services</a>
+      <a href="#team">The team</a>
+      <a href="#proof">Proof</a>
+    </div>
+    <a class="btn" href="#contact">Start a project <span class="ic">↗</span></a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" id="mobmenu">
+  <a href="#problem">Why Cresca</a>
+  <a href="#services">Services</a>
+  <a href="#team">The team</a>
+  <a href="#proof">Proof</a>
+  <a href="#contact">Start a project ↗</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow rv"><span class="dot"></span>Three specialists · one team</span>
+    <h1 class="rv d1" style="margin-top:26px">Marketing that<br>runs itself. <span class="ser">Almost.</span></h1>
+    <p class="sub rv d2">You shouldn't need a Google Ads freelancer, a data person, an SEO, and a video editor who never speak to each other. Cresca is all four seats — filled by three senior operators who already work as one.</p>
+    <div class="cta rv d3">
+      <a class="btn" href="#contact">Book a call <span class="ic">↗</span></a>
+      <a class="btn ghost" href="#team">Meet the three <span class="ic">→</span></a>
+    </div>
+    <div class="trio rv d3">
+      <div class="av t1">T</div><div class="av t2">S</div><div class="av t3">P</div>
+      <span class="lbl"><b>Tanay, Sunam & Pritam</b> — performance, data & content</span>
+    </div>
+    <div class="stats">
+      <div class="stat rv d1"><div class="n">€1M<span>+</span></div><div class="l">Ad spend managed &amp; tracked</div></div>
+      <div class="stat rv d2"><div class="n">150M<span>+</span></div><div class="l">Views across edited content</div></div>
+      <div class="stat rv d3"><div class="n">65<span>+</span></div><div class="l">Client accounts run</div></div>
+      <div class="stat rv d4"><div class="n">10<span> yrs</span></div><div class="l">Deepest bench experience</div></div>
+    </div>
   </div>
 </header>
 
-<div class="wrap hero">
-  <h1>Google Ads management, and the tooling behind it.</h1>
-  <p>Cresca plans, builds and manages Google Ads campaigns for client accounts — supported by a
-     private tool built directly on the Google Ads API.</p>
-  <p class="meta">Cresca is the practice of <strong>Sunam Taran</strong>, an independent Google Ads
-     specialist based in Assam, India. One operator, no company, no team. Every account handled
-     personally.</p>
-</div>
-
-<section id="services">
+<section class="pad" id="problem">
   <div class="wrap">
-    <div class="kicker">Services</div>
-    <h2>What I do for clients</h2>
-    <p>I take on a small number of Google Ads accounts and manage them end to end. There is no team
-       the work gets passed down to — it's me.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Campaign build &amp; launch</h3>
-        <p>Account structure, campaign and ad group architecture, keyword sets, budgets and bid
-           configuration for Search campaigns.</p>
+    <div class="problem">
+      <div>
+        <span class="eyebrow rv"><span class="dot"></span>The usual way is exhausting</span>
+        <div class="big-quote rv d1" style="margin-top:22px">Most growing businesses don't have a marketing problem. They have a <span>coordination</span> problem — four vendors, four dashboards, and no one who owns the whole picture.</div>
       </div>
-      <div class="card">
-        <h3>Ongoing management</h3>
-        <p>Search term review, negative keyword maintenance, bid and budget adjustment, iteration
-           against live performance.</p>
-      </div>
-      <div class="card">
-        <h3>Keyword research</h3>
-        <p>Keyword ideas, historical search volume and forecasts — sized against data before the
-           campaign is built rather than guessed.</p>
-      </div>
-      <div class="card">
-        <h3>Performance analysis</h3>
-        <p>Campaign, ad group, keyword and search term analysis — read from the Google Ads API rather
-           than re-keyed by hand.</p>
+      <div class="painlist">
+        <div class="pain rv d1"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><p><b>Vendor juggling.</b> One person for ads, another for SEO, a third for video — you become the project manager you never wanted to be.</p></div>
+        <div class="pain rv d2"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><p><b>Agency markup.</b> You pay for account managers and layers, and the senior person you were sold rarely touches the work.</p></div>
+        <div class="pain rv d3"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><p><b>Dashboard-green campaigns.</b> The report says everything's fine while spend quietly leaks on conversions that were never real.</p></div>
+        <div class="pain rv d4"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><p><b>Disconnected content.</b> The ads say one thing, the videos say another, and nothing compounds because nothing is joined up.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="tool">
+<section class="pad-s">
   <div class="wrap">
-    <div class="kicker">The Google Ads API tool</div>
-    <h2>A private tool, built for this practice</h2>
-    <p>I built and operate a tool on the Google Ads API to support the account work above. It is a
-       Model Context Protocol (MCP) server that connects the API to Claude, so the accounts I manage
-       can be queried, analysed and changed conversationally instead of assembled by hand.</p>
-    <p>It is written in Python on Google's official <code>google-ads</code> client library
-       (31.1.0, API v24), and authenticates as me over OAuth 2.0. The source is public:
-       <a href="https://github.com/sunamtaran92-a11y/google-ads-api-tools">github.com/sunamtaran92-a11y/google-ads-api-tools</a></p>
-
-    <div class="note">
-      <p><strong>Operated solely by me, for my clients.</strong> I am the only person who operates the
-         tool. It manages the Google Ads accounts of my clients, who are external parties, linked under
-         my manager account 624-846-9807. Clients do not log into it, it is not sold, licensed or
-         offered for sign-up, and it has no public interface. It reads and changes only accounts I
-         already hold access to.</p>
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>How Cresca works</span>
+      <h2>One team. Direct access.<br>Nothing lost between hands.</h2>
     </div>
-
-    <h2 style="font-size:20px;margin-top:40px;margin-bottom:8px">What it does</h2>
-    <p>19 tools across 8 API services. Nine read, eight stage a change, one applies a staged change,
-       one lists what is staged.</p>
-    <table>
-      <thead><tr><th>Capability</th><th>What it covers</th></tr></thead>
-      <tbody>
-        <tr><td>Reporting</td><td>Campaign performance, budget pacing, ad disapprovals, search terms, and arbitrary GAQL — SELECT statements only.</td></tr>
-        <tr><td>Keyword planning</td><td>Keyword ideas, historical search volume and competition, and click / cost / conversion forecasts.</td></tr>
-        <tr><td>Campaign management</td><td>Campaign and keyword status, daily budgets, campaign-level negative keywords.</td></tr>
-        <tr><td>Campaign creation</td><td>Search campaigns — budget, campaign, ad group and keywords. Created paused, with no ads, so nothing serves until it is reviewed.</td></tr>
-        <tr><td>Account creation</td><td>New client accounts under the manager account.</td></tr>
-        <tr><td>Account management</td><td>Account name and auto-tagging settings.</td></tr>
-      </tbody>
-    </table>
-
-    <h2 style="font-size:20px;margin-top:40px;margin-bottom:8px">Every write is gated</h2>
-    <p>Nothing in the tool changes an account directly. A <code>propose_*</code> tool validates the
-       request, builds a plan, and returns it with a single-use confirmation token — writing nothing.
-       Only <code>apply_change</code> mutates, and only for a plan a <code>propose_*</code> staged.
-       Tokens expire after ten minutes and cannot be replayed.</p>
-    <p>An LLM proposing a change is useful. An LLM applying one to a live client account unreviewed is
-       a different risk class. So a human sees every plan before it executes.</p>
+    <div class="steps">
+      <div class="shell rv d1"><div class="core step"><div class="k">01</div><h3>You talk to the people doing the work</h3><p>No account managers, no relay. The specialist running your Google Ads is the one you message. Senior hands on the actual keyboard.</p></div></div>
+      <div class="shell rv d2"><div class="core step"><div class="k">02</div><h3>Ads, data &amp; content share one brain</h3><p>The campaign strategy, the tracking that proves it worked, and the video that feeds it are planned together — not stitched from three vendors after the fact.</p></div></div>
+      <div class="shell rv d3"><div class="core step"><div class="k">03</div><h3>We check the data, not the dashboard</h3><p>We validate conversions at the source before we trust a number. If the report looks good but the pipeline doesn't, we find out why — and fix it.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>What we do</span>
+      <h2>Everything a growth engine needs — under one roof.</h2>
+      <p>Six services that usually mean six invoices and six calendars. Here they're one team, planned as one system.</p>
+    </div>
+    <div class="bento">
+      <div class="svc hero-svc rv"><div class="shell" style="border-radius:26px"><div class="core">
+        <div class="txt"><span class="tag">The differentiator</span><h3>Data-level PPC audits</h3><p>We connect Google Ads to BigQuery and audit at the data layer — catching what standard reporting can't. Silent tracking breaks, inflated Performance Max conversions, wasted spend, and true cost-per-lead validated against your CRM.</p></div>
+        <div class="metric">
+          <div><div class="n">41%</div><div class="l">Hidden conversions recovered in one audit</div></div>
+          <div><div class="n">€127→€82</div><div class="l">Corrected CPA once tracking was fixed</div></div>
+        </div>
+      </div></div></div>
+      <div class="svc wide rv d1"><div class="shell"><div class="core">
+        <div class="icn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></div>
+        <h3>Google &amp; Meta Ads</h3><p>Search, Performance Max, and paid social — setup, audience segmentation, smart-bidding and ongoing optimisation aimed at qualified leads, not vanity clicks.</p>
+      </div></div></div>
+      <div class="svc wide rv d2"><div class="shell"><div class="core">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>SEO, technical &amp; content</h3><p>Technical audits, on-page and off-page, backlinks and keyword strategy. Top-5 rankings for competitive terms — earned, then held for years.</p>
+      </div></div></div>
+      <div class="svc rv d1"><div class="shell"><div class="core">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M10 9l5 3-5 3z"/></svg></div>
+        <h3>Video editing</h3><p>Short &amp; long form, thumbnails and video SEO — branded, smooth, built to be watched.</p>
+      </div></div></div>
+      <div class="svc rv d2"><div class="shell"><div class="core">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3>Multichannel strategy</h3><p>Paid, organic and content planned as one funnel — not siloed campaigns fighting for credit.</p>
+      </div></div></div>
+      <div class="svc rv d3"><div class="shell"><div class="core">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6z"/><path d="M9 12h6M9 16h6"/></svg></div>
+        <h3>Ecommerce &amp; reporting</h3><p>Acquisition funnels, landing-page optimisation, and reporting that ties spend to actual business outcomes.</p>
+      </div></div></div>
+    </div>
   </div>
 </section>
 
-<section id="api">
+<section class="pad" id="team">
   <div class="wrap">
-    <div class="kicker">API services</div>
-    <h2>What the tool calls</h2>
-    <p>This is the complete list, and it is verifiable against the published source.</p>
-    <table>
-      <thead><tr><th>Service</th><th>Used for</th></tr></thead>
-      <tbody>
-        <tr><td><code>GoogleAdsService</code></td><td>GAQL queries via SearchStream. Read-only.</td></tr>
-        <tr><td><code>CustomerService</code></td><td>Listing accessible accounts; creating a client account; account name and auto-tagging.</td></tr>
-        <tr><td><code>CampaignService</code></td><td>Campaign creation and status.</td></tr>
-        <tr><td><code>CampaignBudgetService</code></td><td>Budget creation and daily budgets.</td></tr>
-        <tr><td><code>AdGroupService</code></td><td>Ad group creation.</td></tr>
-        <tr><td><code>AdGroupCriterionService</code></td><td>Keyword creation and status.</td></tr>
-        <tr><td><code>CampaignCriterionService</code></td><td>Campaign negative keywords.</td></tr>
-        <tr><td><code>KeywordPlanIdeaService</code></td><td>Keyword ideas, historical metrics, forecasts. Read-only.</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:18px">Nothing beyond these eight. The tool does not use the App Conversion
-       Tracking and Remarketing API.</p>
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>The three</span>
+      <h2>Independent specialists.<br>One accountable team.</h2>
+      <p>Each of us built a name alone. We came together so clients get the whole capability without the whole agency.</p>
+    </div>
+    <div class="team">
+      <div class="person p1 rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="top"><div class="ring"><div class="in">T</div></div><div><div class="nm">Tanay Sharma</div><div class="rl">Performance Marketing Lead · Berlin</div></div></div>
+        <p class="desc">Ten years across paid search, social and SEO — from six-figure Berlin agency budgets back to <b>direct client work with no layers</b>. Knows how a message performs at every stage, not just in a dashboard.</p>
+        <div class="chips"><span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">SEO</span><span class="chip">Multichannel</span><span class="chip">Ecommerce</span></div>
+        <div class="facts"><div><div class="n">65+</div><div class="l">Accounts run</div></div><div><div class="n">+44%</div><div class="l">Lead volume lift</div></div><div><div class="n">80–90%</div><div class="l">Retention</div></div></div>
+        <a class="link" href="https://www.linkedin.com/in/sharmatanay" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div></div></div>
+      <div class="person p2 rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="top"><div class="ring"><div class="in">S</div></div><div><div class="nm">Sunam Taran</div><div class="rl">Google Ads &amp; Data Audits · Assam</div></div></div>
+        <p class="desc">A Google Ads strategist who <b>reads the data, not the dashboard</b>. Connects Ads to BigQuery to surface what reporting hides — and holds an approved Google Ads API tool for account-level automation.</p>
+        <div class="chips"><span class="chip">Google Ads</span><span class="chip">BigQuery</span><span class="chip">GA4</span><span class="chip">CPA validation</span><span class="chip">PMax audits</span></div>
+        <div class="facts"><div><div class="n">€900K+</div><div class="l">Tracked spend</div></div><div><div class="n">96</div><div class="l">Audit tables built</div></div><div><div class="n">6</div><div class="l">DACH accounts</div></div></div>
+        <a class="link" href="https://www.linkedin.com/in/sunam-taran" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div></div></div>
+      <div class="person p3 rv d3"><div class="shell" style="height:100%"><div class="core">
+        <div class="top"><div class="ring"><div class="in">P</div></div><div><div class="nm">Pritam Shandilya</div><div class="rl">Video &amp; Content Editor</div></div></div>
+        <p class="desc">Turns raw footage into <b>clean, branded video that gets watched</b> — short and long form, thumbnails and video SEO. Trusted by creators with large audiences to keep their visual identity consistent.</p>
+        <div class="chips"><span class="chip">Short form</span><span class="chip">Long form</span><span class="chip">Thumbnails</span><span class="chip">Video SEO</span></div>
+        <div class="facts"><div><div class="n">150M+</div><div class="l">Views delivered</div></div><div><div class="n">500+</div><div class="l">Pieces edited</div></div><div><div class="n">3 yrs</div><div class="l">Editing</div></div></div>
+        <a class="link" href="https://www.linkedin.com/in/pritam-shandilya/" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pad-s" id="proof">
+  <div class="wrap">
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>Proof</span>
+      <h2>Work that holds up after the handshake.</h2>
+      <p>A mix of client feedback and audit results from across the three practices.</p>
+    </div>
+    <div class="proof">
+      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years."</p>
+        <div class="by"><b>Verified client</b> · via List &amp; Sell GmbH, Berlin</div>
+      </div></div></div>
+      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"Pritam transformed my raw content into polished videos my audience loves. Outstanding communication and genuinely cares about getting it right."</p>
+        <div class="by"><b>Coaching creator</b> · video client</div>
+      </div></div></div>
+      <div class="quote rv d3"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"Found a Performance Max campaign inflating its CPA by counting 551 Google Maps micro-actions as conversions alongside only 127 real leads. Corrected — and the spend followed the real pipeline."</p>
+        <div class="by"><b>DACH lead-gen account</b> · BigQuery audit</div>
+      </div></div></div>
+    </div>
   </div>
 </section>
 
-<section id="model">
+<section class="pad" id="contact">
   <div class="wrap">
-    <div class="kicker">Business model</div>
-    <h2>How the practice makes money</h2>
-    <p>Clients pay me a management fee to plan and run their Google Ads campaigns. That fee is the
-       whole of the revenue.</p>
-    <p>The tool is not a product. It is not sold, licensed, resold or offered to clients or to the
-       public, it carries no pricing, and no sign-up exists for it. Its value is realised indirectly,
-       through the quality and speed of the account management it supports.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="kicker">Contact</div>
-    <h2>Get in touch</h2>
-    <p>Sunam Taran — <a href="mailto:sunamtaran92@gmail.com">sunamtaran92@gmail.com</a></p>
-    <p>Assam, India</p>
+    <div class="contact rv"><div class="shell" style="border-radius:30px"><div class="core">
+      <span class="eyebrow"><span class="dot"></span>Let's talk</span>
+      <h2 style="margin-top:18px">Tell us what's stressing you out.</h2>
+      <p>Ads that aren't converting, tracking you don't trust, content that isn't landing — or all three. One conversation, no pitch deck.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:hello@cresca.agency?subject=Project%20enquiry">Email the team <span class="ic">↗</span></a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/sunam-taran" target="_blank" rel="noopener">Connect on LinkedIn <span class="ic">→</span></a>
+      </div>
+      <div class="mails">
+        <a href="mailto:hello@cresca.agency">hello@cresca.agency</a>
+        <span>·</span>
+        <span>Berlin &amp; India · remote-friendly across EU / partial US hours</span>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <p><strong style="color:var(--ink)">Cresca</strong> — the independent Google Ads practice of Sunam Taran.</p>
-    <p>Google Ads manager account 624-846-9807. Source code:
-       <a href="https://github.com/sunamtaran92-a11y/google-ads-api-tools">github.com/sunamtaran92-a11y/google-ads-api-tools</a></p>
+  <div class="wrap foot">
+    <div>
+      <div class="brand">cresca<b style="color:var(--acc)">.</b></div>
+      <div class="cr" style="margin-top:8px">Three specialists — performance, data &amp; content.</div>
+    </div>
+    <div class="fl">
+      <a href="#problem">Why Cresca</a><a href="#services">Services</a><a href="#team">Team</a><a href="#contact">Contact</a>
+    </div>
+    <div class="cr">© 2026 Cresca. All rights reserved.</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var b=document.getElementById('burger'),m=document.getElementById('mobmenu');
+  b.addEventListener('click',function(){b.classList.toggle('open');m.classList.toggle('open');
+    document.body.style.overflow=m.classList.contains('open')?'hidden':'';});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    b.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>
