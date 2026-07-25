@@ -243,8 +243,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .split2 .lane .items span{font-size:11.5px;color:var(--mut);border:1px solid var(--line2);background:var(--glass);border-radius:999px;padding:5px 11px}
 
 /* work: results panel + video portfolio */
-.worktabs{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:start}
-@media(max-width:960px){.worktabs{grid-template-columns:1fr}}
+.worktabs{display:grid;grid-template-columns:1fr;gap:30px;align-items:start}
 .results .core{padding:26px}
 .results .rh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .results .rh .t{font-family:var(--disp);font-weight:600;font-size:15px}
@@ -280,13 +279,13 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .dashcap b{color:var(--ink);font-weight:600}
 .dashnote{font-size:11.5px;color:var(--dim);margin-top:16px;text-align:center}
 
-.vidgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:520px){.vidgrid{grid-template-columns:1fr}}
+.vidrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:760px){.vidrow{grid-template-columns:repeat(2,1fr)}}
 .vid{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:9/16;position:relative}
-.vid.wide{aspect-ratio:16/9;grid-column:span 2}
-@media(max-width:520px){.vid.wide{grid-column:span 1}}
 .vid iframe{width:100%;height:100%;border:0;display:block}
-.vidcap{font-size:11px;color:var(--dim);margin-top:8px;grid-column:1/-1;text-align:center}
+.vidfeat{margin:14px auto 0;max-width:760px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}
+.vidfeat iframe{width:100%;height:100%;border:0;display:block}
+.vidcap{font-size:11.5px;color:var(--dim);margin-top:12px;text-align:center}
 </style>
 </head>
 <body>
@@ -428,9 +427,9 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
     </div>
     <div class="team">
       <div class="person p1 rv d1"><div class="shell" style="height:100%"><div class="core">
-        <div class="top"><div class="ring"><div class="in">T</div></div><div><div class="nm">Tanay Sharma</div><div class="rl">Client Lead &amp; Account Manager · Berlin</div></div></div>
-        <p class="desc">Your single point of contact — <b>accountable, available, and one step ahead of your questions</b>. Ten years managing 65+ client accounts means he speaks every specialist's language and turns it into plain answers, fast. The person clients actually want on the other end of the line.</p>
-        <div class="chips"><span class="chip">Account management</span><span class="chip">Client success</span><span class="chip">Always available</span><span class="chip">Strategy</span><span class="chip">Reporting</span></div>
+        <div class="top"><div class="ring"><div class="in">T</div></div><div><div class="nm">Tanay Sharma</div><div class="rl">Client Lead, Account Manager &amp; SEO · Berlin</div></div></div>
+        <p class="desc">Your single point of contact — <b>accountable, available, and one step ahead of your questions</b>. An <b>SEO and multichannel strategist</b> by background — keyword research, on-page and backlink work that's ranked client keywords in the top five within months — with ten years and 65+ accounts behind him. He speaks every specialist's language and turns it into plain answers, fast.</p>
+        <div class="chips"><span class="chip">Account management</span><span class="chip">SEO</span><span class="chip">Keyword research</span><span class="chip">On-page &amp; backlinks</span><span class="chip">Client success</span><span class="chip">Strategy</span></div>
         <div class="facts"><div><div class="n">65+</div><div class="l">Accounts managed</div></div><div><div class="n">80–90%</div><div class="l">Client retention</div></div><div><div class="n">1</div><div class="l">Point of contact</div></div></div>
         <a class="link" href="https://www.linkedin.com/in/sharmatanay" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div></div></div>
@@ -475,32 +474,32 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         <div class="note">Figures from live accounts under active management. Real dashboard screenshots below.</div>
       </div></div></div>
       <div class="rv d2">
-        <div class="vidgrid">
+        <div class="vidrow">
           <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/2d3lCrZUdnM?rel=0&modestbranding=1&playsinline=1" title="Client short-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/uyKPFLA2JcY?rel=0&modestbranding=1&playsinline=1" title="Client short-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/MEYJ7jv9VGk?rel=0&modestbranding=1&playsinline=1" title="Client short-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/uWwDvIJ2teU?rel=0&modestbranding=1&playsinline=1" title="Client short-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-          <div class="vid wide"><iframe loading="lazy" src="https://www.youtube.com/embed/xFvlUVkMPJY?rel=0&modestbranding=1&playsinline=1" title="Client long-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-          <div class="vidcap">Selected edits — short &amp; long form. 150M+ views generated for creators including large-audience founders.</div>
         </div>
+        <div class="vidfeat"><iframe loading="lazy" src="https://www.youtube.com/embed/xFvlUVkMPJY?rel=0&modestbranding=1&playsinline=1" title="Client long-form edit" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="vidcap">Selected edits — short &amp; long form. 150M+ views generated for creators including large-audience founders.</div>
       </div>
     </div>
 
     <div class="sechead rv" style="margin-top:58px;margin-bottom:26px">
       <span class="eyebrow"><span class="dot"></span>Inside the ad accounts</span>
       <h2>Live dashboards.<br>Real conversions.</h2>
-      <p>Snapshots from Google Ads accounts we actively manage — last 30 days. Client names and IDs are masked; every number is untouched.</p>
+      <p>Snapshots from Google Ads accounts we actively manage — last 30 days.</p>
     </div>
     <div class="dashwrap">
       <div class="dashframe rv d1">
         <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
         <img src="dash-acct-1.png" alt="Google Ads account overview showing 240 conversions at €22.52 cost per conversion over 30 days" loading="lazy">
-        <div class="dashcap"><b>Lead-gen account.</b> 240 conversions · €22.52 cost / conv. · €5.4k spend — 30 days.</div>
+        <div class="dashcap"><b>First-aid &amp; safety training.</b> 240 conversions · €22.52 cost / conv. · €5.4k spend — 30 days.</div>
       </div>
       <div class="dashframe rv d2">
         <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
         <img src="dash-acct-2.png" alt="Google Ads account overview showing 227 conversions at €10.03 cost per conversion over 30 days" loading="lazy">
-        <div class="dashcap"><b>E-commerce account.</b> 227 conversions · €10.03 cost / conv. · €2.3k spend — 30 days.</div>
+        <div class="dashcap"><b>Luggage &amp; travel e-commerce.</b> 227 conversions · €10.03 cost / conv. · €2.3k spend — 30 days.</div>
       </div>
     </div>
     <div class="dashwrap" style="margin-top:22px">
@@ -566,7 +565,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
       <div class="cr" style="margin-top:8px">One senior team — paid, organic &amp; AI automation.</div>
     </div>
     <div class="fl">
-      <a href="#problem">Why Cresca</a><a href="#services">Services</a><a href="#team">Team</a><a href="#contact">Contact</a>
+      <a href="#problem">Why Cresca</a><a href="#services">Services</a><a href="#team">Team</a><a href="#contact">Contact</a><a href="/privacy.html">Privacy</a>
     </div>
     <div class="cr">© 2026 Cresca. All rights reserved.</div>
   </div>
