@@ -262,6 +262,23 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .rbar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
 .rbar .v{font-family:var(--disp);font-weight:600;font-size:13px;width:48px;text-align:right}
 .results .note{font-size:11.5px;color:var(--dim);margin-top:16px}
+/* live dashboard frames */
+.dashwrap{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:960px){.dashwrap{grid-template-columns:1fr}}
+.dashframe{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);
+  box-shadow:0 24px 70px rgba(0,0,0,.55);transition:transform .5s var(--e),border-color .5s var(--e)}
+.dashframe:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
+.dashbar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.045);border-bottom:1px solid var(--line2)}
+.dashbar .dots{display:flex;gap:6px}
+.dashbar .dots i{width:10px;height:10px;border-radius:50%;display:block}
+.dashbar .dots i:nth-child(1){background:#ff5f57}
+.dashbar .dots i:nth-child(2){background:#febc2e}
+.dashbar .dots i:nth-child(3){background:#28c840}
+.dashbar .url{flex:1;text-align:center;font-size:11px;color:var(--dim);font-family:var(--disp);letter-spacing:.02em}
+.dashframe img{width:100%;display:block;background:#fff}
+.dashcap{font-size:12.5px;color:var(--mut);padding:13px 16px;border-top:1px solid var(--line2);background:rgba(255,255,255,.02);line-height:1.5}
+.dashcap b{color:var(--ink);font-weight:600}
+.dashnote{font-size:11.5px;color:var(--dim);margin-top:16px;text-align:center}
 
 .vidgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:520px){.vidgrid{grid-template-columns:1fr}}
@@ -455,7 +472,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
           <div class="rbar"><span class="k">Online retail</span><span class="track"><span class="fill" style="width:54%"></span></span><span class="v">5.2×</span></div>
           <div class="rbar"><span class="k">Men's fashion</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">9.6×</span></div>
         </div>
-        <div class="note">ROAS on real D2C ad accounts. Full dashboard screenshots shared on request during your call.</div>
+        <div class="note">Figures from live accounts under active management. Real dashboard screenshots below.</div>
       </div></div></div>
       <div class="rv d2">
         <div class="vidgrid">
@@ -468,6 +485,37 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         </div>
       </div>
     </div>
+
+    <div class="sechead rv" style="margin-top:58px;margin-bottom:26px">
+      <span class="eyebrow"><span class="dot"></span>Inside the ad accounts</span>
+      <h2>Live dashboards.<br>Real conversions.</h2>
+      <p>Snapshots from Google Ads accounts we actively manage — last 30 days. Client names and IDs are masked; every number is untouched.</p>
+    </div>
+    <div class="dashwrap">
+      <div class="dashframe rv d1">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
+        <img src="dash-acct-1.png" alt="Google Ads account overview showing 240 conversions at €22.52 cost per conversion over 30 days" loading="lazy">
+        <div class="dashcap"><b>Lead-gen account.</b> 240 conversions · €22.52 cost / conv. · €5.4k spend — 30 days.</div>
+      </div>
+      <div class="dashframe rv d2">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
+        <img src="dash-acct-2.png" alt="Google Ads account overview showing 227 conversions at €10.03 cost per conversion over 30 days" loading="lazy">
+        <div class="dashcap"><b>E-commerce account.</b> 227 conversions · €10.03 cost / conv. · €2.3k spend — 30 days.</div>
+      </div>
+    </div>
+    <div class="dashwrap" style="margin-top:22px">
+      <div class="dashframe rv d1">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
+        <img src="proof-portfolio.png" alt="Managed portfolio: 80.5k clicks, 559 lead-form conversions, €142k spend over 30 days" loading="lazy">
+        <div class="dashcap"><b>Across the whole book.</b> 80.5k clicks · 559 lead-form conversions · €31.92 cost / conv. · €142k managed spend.</div>
+      </div>
+      <div class="dashframe rv d2">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Accounts</div></div>
+        <img src="proof-accounts.png" alt="Per-account performance table with conversions and conversion rates across managed accounts" loading="lazy">
+        <div class="dashcap"><b>Every account, one view.</b> Conversions, conversion rates and cost per conversion across the accounts we run.</div>
+      </div>
+    </div>
+    <div class="dashnote">Anonymised screenshots from live Google Ads accounts under active management — client identifiers removed, numbers untouched. Full, un-masked walkthrough on your call.</div>
 
     <div class="sechead rv" style="margin-top:64px;margin-bottom:36px">
       <span class="eyebrow"><span class="dot"></span>What clients say</span>
