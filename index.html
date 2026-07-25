@@ -106,8 +106,9 @@ section{position:relative;z-index:1}
 .hero .sub{color:var(--mut);font-size:clamp(16px,2.2vw,20px);max-width:560px;margin-top:26px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
 .trio{display:flex;align-items:center;gap:0;margin-top:44px}
-.trio .av{width:46px;height:46px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;
+.trio .av{width:46px;height:46px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;overflow:hidden;
   display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:600;font-size:15px;color:#0a0b0f}
+.trio .av img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .trio .av:first-child{margin-left:0}
 .trio .t1{background:linear-gradient(135deg,#9db2ff,#7f8fff)}
 .trio .t2{background:linear-gradient(135deg,#7fe0c2,#57c6a4)}
@@ -324,7 +325,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
       <a class="btn ghost" href="#proof">See the work <span class="ic">→</span></a>
     </div>
     <div class="trio rv d3">
-      <div class="av t1">T</div><div class="av t2">S</div><div class="av t3">P</div>
+      <div class="av t1"><img src="tanay.jpg" alt="Tanay Sharma" loading="lazy"></div><div class="av t2"><img src="sunam.jpg" alt="Sunam Taran" loading="lazy"></div><div class="av t3"><img src="pritam.jpg" alt="Pritam Shandilya" loading="lazy"></div>
       <span class="lbl"><b>Tanay, Sunam & Pritam</b> — account lead, AI paid media &amp; social</span>
     </div>
     <div class="stats">
