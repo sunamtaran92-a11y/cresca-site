@@ -571,7 +571,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
   </div>
 </footer>
 
-<div id="cc" class="cc" hidden>
+<div id="cc" class="cc">
   <div class="cc-in">
     <p class="cc-t">We use only essential cookies by default. With your consent we also use analytics and advertising cookies to measure traffic and campaigns — see our <a href="/privacy.html">Privacy Policy</a>.</p>
     <div class="cc-b">
@@ -581,7 +581,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
   </div>
 </div>
 <style>
-.cc{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:center;padding:16px}
+.cc{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;justify-content:center;padding:16px}
 .cc-in{max-width:820px;width:100%;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   background:rgba(12,14,20,.92);border:1px solid rgba(255,255,255,.12);border-radius:16px;
   padding:16px 18px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 50px rgba(0,0,0,.5)}
@@ -597,9 +597,9 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 <script>
 (function(){
   var KEY='cresca-consent',el=document.getElementById('cc');
-  function set(v){try{localStorage.setItem(KEY,v);}catch(e){}window.crescaConsent=v;el.hidden=true;/* load analytics/ads tags here when v==='granted' */}
+  function set(v){try{localStorage.setItem(KEY,v);}catch(e){}window.crescaConsent=v;el.style.display='none';/* load analytics/ads tags here when v==='granted' */}
   var saved=null;try{saved=localStorage.getItem(KEY);}catch(e){}
-  if(saved){window.crescaConsent=saved;}else{el.hidden=false;}
+  if(saved){window.crescaConsent=saved;}else{el.style.display='flex';}
   el.querySelector('.cc-accept').addEventListener('click',function(){set('granted');});
   el.querySelector('.cc-decline').addEventListener('click',function(){set('denied');});
 })();
