@@ -122,7 +122,8 @@ section{position:relative;z-index:1}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 .stat{padding:22px 22px 20px;border-radius:20px;border:1px solid var(--line2);background:var(--glass)}
 .stat .n{font-family:var(--disp);font-weight:600;font-size:30px;letter-spacing:-.03em}
-.stat .n span{color:var(--acc)}
+.stat .n .sfx{color:var(--acc)}
+.stat .n .num{font-variant-numeric:tabular-nums}
 .stat .l{color:var(--mut);font-size:13px;margin-top:6px;line-height:1.4}
 
 /* double-bezel card */
@@ -361,6 +362,17 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .ind .core{padding:22px;height:100%}
 .ind h3{font-size:16px;margin-bottom:6px}
 .ind p{font-size:13px;color:var(--mut);line-height:1.5}
+/* ambient motion */
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(3.5vw,3vh)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-3vw,2vh)}}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(2vw,-2vh)}}
+.orb.a{animation:drift1 24s ease-in-out infinite}
+.orb.b{animation:drift2 28s ease-in-out infinite}
+.orb.c{animation:drift3 32s ease-in-out infinite}
+/* result bars grow on reveal */
+.rbar .fill{transform-origin:left;transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.results.rv:not(.in) .rbar .fill{transform:scaleX(0)}
+@media(prefers-reduced-motion:reduce){.orb{animation:none}.rbar .fill{transition:none}.results.rv:not(.in) .rbar .fill{transform:none}}
 </style>
 </head>
 <body>
@@ -403,10 +415,10 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
       <span class="lbl"><b>Tanay, Sunam & Pritam</b> — account lead, AI paid media &amp; social</span>
     </div>
     <div class="stats">
-      <div class="stat rv d1"><div class="n">€1M<span>+</span></div><div class="l">Ad spend managed</div></div>
-      <div class="stat rv d2"><div class="n">150M<span>+</span></div><div class="l">Views generated for clients</div></div>
-      <div class="stat rv d3"><div class="n">65<span>+</span></div><div class="l">Client accounts run</div></div>
-      <div class="stat rv d4"><div class="n">10<span> yrs</span></div><div class="l">Combined team experience</div></div>
+      <div class="stat rv d1"><div class="n">€<span class="num" data-to="1">1</span><span class="sfx">M+</span></div><div class="l">Ad spend managed</div></div>
+      <div class="stat rv d2"><div class="n"><span class="num" data-to="150">150</span><span class="sfx">M+</span></div><div class="l">Views generated for clients</div></div>
+      <div class="stat rv d3"><div class="n"><span class="num" data-to="65">65</span><span class="sfx">+</span></div><div class="l">Client accounts run</div></div>
+      <div class="stat rv d4"><div class="n"><span class="num" data-to="10">10</span><span class="sfx"> yrs</span></div><div class="l">Combined team experience</div></div>
     </div>
     <div class="markets rv d4">
       <div class="lab">Working with clients across</div>
@@ -423,16 +435,41 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
   </div>
 </header>
 
-<div class="wrap trustwrap">
-  <div class="trustbar rv">
-    <div class="tb-rate"><span class="tb-st">★★★★★</span><span class="tb-lbl">Real reviews across paid, social &amp; SEO</span></div>
-    <div class="tb-quotes">
-      <div class="tb-q"><b>"An exceptional performance marketer — always optimised for ROI."</b> <span>Paid</span></div>
-      <div class="tb-q"><b>"Reached page one and stayed there for years."</b> <span>SEO</span></div>
-      <div class="tb-q"><b>"Completely transformed my content workflow."</b> <span>Social</span></div>
+<section class="pad-s" id="reviews">
+  <div class="wrap">
+    <div class="sechead rv" style="margin-bottom:30px">
+      <span class="eyebrow"><span class="dot"></span>What clients say</span>
+      <div class="rating"><span class="st">★★★★★</span><span class="rt">Real, unedited reviews from clients across paid, social &amp; SEO.</span></div>
+    </div>
+    <div class="proof">
+      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"An exceptional performance marketer with a data-first approach on every campaign — always optimised for ROI. He identifies growth opportunities, scales campaigns efficiently, and takes full ownership of the outcome. Highly recommend him to anyone looking to drive real business impact."</p>
+        <div class="by"><b>Performance marketing</b> · LinkedIn recommendation</div>
+      </div></div></div>
+      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years. Genuinely effective at growing a brand's search visibility."</p>
+        <div class="by"><b>Long-term SEO client</b> · Professional services</div>
+      </div></div></div>
+      <div class="quote rv d3"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"Pritam completely transformed my content workflow! Super easy to work with, always delivers on time, and quality is consistently amazing. He 'gets' social media and makes content more engaging. Total lifesaver for busy creators."</p>
+        <div class="by"><b>Sarah Mitchell</b> · Marketing Director</div>
+      </div></div></div>
+      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"Finding Pritam felt like discovering a hidden gem. He transformed my raw coaching content into polished videos my audience loves. Outstanding communication and genuinely cares about getting it right. I've recommended him to a lot more coaches!"</p>
+        <div class="by"><b>Emily Rogers</b> · Creative Director</div>
+      </div></div></div>
+      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"Pritam stands out for seamless communication and reliability. Every project delivered on time with clear updates. He understood our brand immediately and required minimal revisions. A true professional who makes collaboration effortless."</p>
+        <div class="by"><b>David Lawson</b> · CEO, Visionary Ads</div>
+      </div></div></div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="pad" id="problem">
   <div class="wrap">
@@ -657,38 +694,6 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
       </div>
     </div>
     <div class="dashnote">Anonymised screenshots from live Google Ads accounts under active management — client identifiers removed, numbers untouched. Full, un-masked walkthrough on your call.</div>
-
-    <div class="sechead rv" style="margin-top:64px;margin-bottom:32px">
-      <span class="eyebrow"><span class="dot"></span>What clients say</span>
-      <div class="rating"><span class="st">★★★★★</span><span class="rt">Real, unedited reviews from clients across social, SEO and paid.</span></div>
-    </div>
-    <div class="proof">
-      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
-        <div class="stars">★★★★★</div>
-        <p>"Pritam completely transformed my content workflow! Super easy to work with, always delivers on time, and quality is consistently amazing. He 'gets' social media and makes content more engaging. Total lifesaver for busy creators."</p>
-        <div class="by"><b>Sarah Mitchell</b> · Marketing Director</div>
-      </div></div></div>
-      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
-        <div class="stars">★★★★★</div>
-        <p>"Finding Pritam felt like discovering a hidden gem. He transformed my raw coaching content into polished videos my audience loves. Outstanding communication and genuinely cares about getting it right. I've recommended him to a lot more coaches!"</p>
-        <div class="by"><b>Emily Rogers</b> · Creative Director</div>
-      </div></div></div>
-      <div class="quote rv d3"><div class="shell" style="height:100%"><div class="core">
-        <div class="stars">★★★★★</div>
-        <p>"Pritam stands out for seamless communication and reliability. Every project delivered on time with clear updates. He understood our brand immediately and required minimal revisions. A true professional who makes collaboration effortless."</p>
-        <div class="by"><b>David Lawson</b> · CEO, Visionary Ads</div>
-      </div></div></div>
-      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
-        <div class="stars">★★★★★</div>
-        <p>"An exceptional performance marketer with a data-first approach on every campaign — always optimised for ROI. He identifies growth opportunities, scales campaigns efficiently, and takes full ownership of the outcome. Highly recommend him to anyone looking to drive real business impact."</p>
-        <div class="by"><b>Performance marketing</b> · LinkedIn recommendation</div>
-      </div></div></div>
-      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
-        <div class="stars">★★★★★</div>
-        <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years. Genuinely effective at growing a brand's search visibility."</p>
-        <div class="by"><b>Long-term SEO client</b> · Professional services</div>
-      </div></div></div>
-    </div>
   </div>
 </section>
 
@@ -814,9 +819,23 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
     document.body.style.overflow=m.classList.contains('open')?'hidden':'';});
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
     b.classList.remove('open');m.classList.remove('open');document.body.style.overflow='';});});
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  var supported='IntersectionObserver' in window;
+  if(supported){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+  }
+  // count-up stats
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el){var to=+el.getAttribute('data-to');if(rm||!to){el.textContent=to;return;}var dur=1400,t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);el.textContent=Math.round((1-Math.pow(1-p,3))*to);
+      if(p<1)requestAnimationFrame(step);else el.textContent=to;}requestAnimationFrame(step);}
+  var nums=document.querySelectorAll('.num[data-to]');
+  if(supported){var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}});},{threshold:.6});
+    nums.forEach(function(n){cio.observe(n);});}
 })();
 </script>
 </body>
