@@ -319,6 +319,47 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .rating{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
 .rating .st{color:var(--warn);font-size:17px;letter-spacing:2px}
 .rating .rt{font-size:13.5px;color:var(--mut)}
+/* trust strip */
+.trustwrap{position:relative;z-index:1;margin-top:-10px}
+.trustbar{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:space-between;
+  padding:18px 24px;border:1px solid var(--line);background:var(--glass);border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.tb-rate{display:flex;flex-direction:column;gap:3px;flex:0 0 auto}
+.tb-st{color:var(--warn);font-size:18px;letter-spacing:2px}
+.tb-lbl{font-size:12px;color:var(--mut)}
+.tb-quotes{display:flex;gap:24px;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.tb-q{font-size:12.5px;color:var(--mut);max-width:240px;line-height:1.45}
+.tb-q b{color:var(--ink);font-weight:500}
+.tb-q span{color:var(--acc);font-weight:600}
+@media(max-width:900px){.tb-quotes{display:none}}
+/* three engines */
+.engines{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+@media(max-width:860px){.engines{grid-template-columns:1fr}}
+.eng .core{display:flex;flex-direction:column;gap:12px;height:100%}
+.eng-tag{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:600}
+.eng h3{font-size:19px}
+.eng p{font-size:14px;color:var(--mut)}
+.eng .items{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.eng .items span{font-size:11.5px;color:var(--mut);border:1px solid var(--line2);background:var(--glass);border-radius:999px;padding:5px 11px}
+.eng-note{text-align:center;font-size:13px;color:var(--dim);margin-top:24px;font-style:italic}
+/* assessment */
+.assess .core{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:40px;
+  background:radial-gradient(120% 150% at 0% 0%,rgba(110,130,255,.14),transparent 55%),var(--bg2)}
+@media(max-width:860px){.assess .core{grid-template-columns:1fr;gap:26px;padding:30px 24px}}
+.as-txt h2{font-size:clamp(26px,4vw,40px)}
+.as-txt p{color:var(--mut);font-size:16px;margin-top:16px}
+.as-list{display:flex;flex-direction:column;gap:12px}
+.as-item{display:flex;gap:14px;align-items:flex-start;padding:15px 18px;border:1px solid var(--line2);background:var(--glass);border-radius:14px}
+.as-item .ck2{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:rgba(127,224,194,.14);border:1px solid rgba(127,224,194,.35);color:var(--em);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;margin-top:1px}
+.as-item b{display:block;font-size:14.5px;color:var(--ink)}
+.as-item span{font-size:13px;color:var(--mut)}
+/* industries */
+.inds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+@media(max-width:860px){.inds{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.inds{grid-template-columns:1fr}}
+.ind .core{padding:22px;height:100%}
+.ind h3{font-size:16px;margin-bottom:6px}
+.ind p{font-size:13px;color:var(--mut);line-height:1.5}
 </style>
 </head>
 <body>
@@ -380,6 +421,17 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
     </div>
   </div>
 </header>
+
+<div class="wrap trustwrap">
+  <div class="trustbar rv">
+    <div class="tb-rate"><span class="tb-st">★★★★★</span><span class="tb-lbl">Real reviews across paid, social &amp; SEO</span></div>
+    <div class="tb-quotes">
+      <div class="tb-q"><b>"An exceptional performance marketer — always optimised for ROI."</b> <span>Paid</span></div>
+      <div class="tb-q"><b>"Reached page one and stayed there for years."</b> <span>SEO</span></div>
+      <div class="tb-q"><b>"Completely transformed my content workflow."</b> <span>Social</span></div>
+    </div>
+  </div>
+</div>
 
 <section class="pad" id="problem">
   <div class="wrap">
@@ -459,40 +511,50 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
   <div class="wrap">
     <div class="sechead rv">
       <span class="eyebrow"><span class="dot"></span>What we do</span>
-      <h2>Both sides of growth. One team.</h2>
-      <p>We run <b style="color:var(--ink)">paid and organic together</b> — the ads that buy attention now and the content and search presence that compound it over time. Usually that's several vendors and several invoices. Here it's one system.</p>
+      <h2>Three engines. One system.</h2>
+      <p>Everything we do sits in one of three engines. Paid brings buyers in today; organic compounds the ones who'll search tomorrow; the system underneath keeps every euro traceable. Run together, each one makes the other two work harder.</p>
     </div>
-    <div class="split2">
-      <div class="lane paid rv d1"><div class="shell"><div class="core">
-        <div class="h"><span class="pl">Paid</span></div>
-        <h3>Ads that bring in leads</h3>
-        <p>Google, Meta &amp; TikTok — Search, local and paid social built to bring in qualified leads, calls and form fills. Set up, segmented, bid-optimised and automated toward booked business, not vanity clicks.</p>
+    <div class="engines">
+      <div class="eng rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="eng-tag" style="color:var(--acc)">01 · Performance</div>
+        <h3>Paid that brings buyers now</h3>
+        <p>Search, local and paid social on Google, Meta and TikTok — built around calls and form fills, bid-optimised toward booked business rather than clicks. This is the engine that fills the pipeline this week.</p>
         <div class="items"><span>Google Ads</span><span>Meta Ads</span><span>TikTok Ads</span><span>Lead-gen campaigns</span><span>Call tracking</span><span>Landing pages</span></div>
       </div></div></div>
-      <div class="lane org rv d2"><div class="shell"><div class="core">
-        <div class="h"><span class="pl">Organic</span></div>
+      <div class="eng rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="eng-tag" style="color:var(--em)">02 · Organic &amp; content</div>
         <h3>Presence that compounds</h3>
-        <p>SEO and social content that keep bringing customers in long after the ad budget stops — technical SEO, keyword and content strategy, and short &amp; long-form video.</p>
-        <div class="items"><span>Technical SEO</span><span>Content &amp; keywords</span><span>Backlinks</span><span>Social strategy</span><span>Short &amp; long form</span><span>Thumbnails</span></div>
+        <p>SEO that captures the buyers who search tomorrow, plus the short- and long-form content that feeds your ads and your channels. A library that keeps earning long after the budget stops.</p>
+        <div class="items"><span>Technical SEO</span><span>Keyword &amp; content</span><span>Backlinks</span><span>Social strategy</span><span>Short &amp; long-form video</span><span>Thumbnails</span></div>
+      </div></div></div>
+      <div class="eng rv d3"><div class="shell" style="height:100%"><div class="core">
+        <div class="eng-tag" style="color:var(--acc2)">03 · Automation &amp; systems</div>
+        <h3>The layer that makes it traceable</h3>
+        <p>AI-powered workflows for conversion tracking, reporting, budget and bid checks and lead routing — so nothing leaks, and every euro in maps to a result out. It's the reason the other two engines can be trusted.</p>
+        <div class="items"><span>Conversion tracking</span><span>Attribution</span><span>Automated reporting</span><span>Lead routing</span><span>AI workflows</span></div>
       </div></div></div>
     </div>
-    <div class="bento">
-      <div class="svc hero-svc rv"><div class="shell" style="border-radius:26px"><div class="core">
-        <div class="txt"><span class="tag">The differentiator</span><h3>AI automation workflows</h3><p>Beyond the campaigns, we build AI-powered workflows that run the operation behind the scenes — automated reporting, budget and bid monitoring, conversion-tracking checks and lead routing across paid and organic. Less manual work, fewer things slipping, and more of your budget compounding into ROI.</p></div>
-        <div class="metric">
-          <div><div class="n">41%</div><div class="l">Hidden conversions the workflow surfaced</div></div>
-          <div><div class="n">€127→€82</div><div class="l">CPA corrected once tracking was fixed</div></div>
+    <div class="eng-note rv">Each engine feeds the next — content fuels the ads, the ads feed the data, and the data sharpens both.</div>
+  </div>
+</section>
+
+<section class="pad-s">
+  <div class="wrap">
+    <div class="assess rv"><div class="shell" style="border-radius:26px"><div class="core">
+      <div class="as-txt">
+        <span class="eyebrow"><span class="dot"></span>Free 30-minute assessment</span>
+        <h2 style="margin-top:16px">Is your marketing actually working?</h2>
+        <p>Most owners can't answer that with a number. On a free 30-minute call we go through your accounts with you and tell you three things straight — no deck, no obligation.</p>
+        <div class="cta" style="margin-top:22px">
+          <a class="btn" href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/agencycresca/30min'});return false;">Book your assessment <span class="ic">↗</span></a>
         </div>
-      </div></div></div>
-      <div class="svc wide rv d1"><div class="shell"><div class="core">
-        <div class="icn"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M2 20h20M9 16v4M15 16v4"/></svg></div>
-        <h3>Multichannel strategy</h3><p>Paid, organic and content planned as one funnel — every channel pulling toward the same revenue goal, not siloed campaigns fighting for credit.</p>
-      </div></div></div>
-      <div class="svc wide rv d2"><div class="shell"><div class="core">
-        <div class="icn"><svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6z"/><path d="M9 12h6M9 16h6"/></svg></div>
-        <h3>Lead generation &amp; reporting</h3><p>Lead funnels, landing-page and form optimisation, call tracking, and clear reporting that ties every euro of spend to booked business.</p>
-      </div></div></div>
-    </div>
+      </div>
+      <div class="as-list">
+        <div class="as-item"><span class="ck2">✓</span><div><b>Where you're leaking spend</b><span>The campaigns and conversions quietly burning budget.</span></div></div>
+        <div class="as-item"><span class="ck2">✓</span><div><b>What's really driving revenue</b><span>The channels and keywords worth doubling down on.</span></div></div>
+        <div class="as-item"><span class="ck2">✓</span><div><b>Your highest-impact fix</b><span>The one change we'd make first — and exactly why.</span></div></div>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
@@ -565,9 +627,9 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
     </div>
 
     <div class="sechead rv" style="margin-top:58px;margin-bottom:26px">
-      <span class="eyebrow"><span class="dot"></span>Inside the ad accounts</span>
-      <h2>Live dashboards.<br>Real conversions.</h2>
-      <p>Snapshots from Google Ads accounts we actively manage — last 30 days.</p>
+      <span class="eyebrow"><span class="dot"></span>Live dashboards</span>
+      <h2>The proof is in the numbers.</h2>
+      <p>Snapshots from Google Ads accounts we actively manage — last 30 days, straight from the platform.</p>
     </div>
     <div class="dashwrap">
       <div class="dashframe rv d1">
@@ -625,6 +687,24 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years. Genuinely effective at growing a brand's search visibility."</p>
         <div class="by"><b>Long-term SEO client</b> · Professional services</div>
       </div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad-s">
+  <div class="wrap">
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>Where we go deep</span>
+      <h2>Industries we know best.</h2>
+      <p>We've run real budgets in these verticals — so we start from what already works there, instead of learning on your money.</p>
+    </div>
+    <div class="inds">
+      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Home &amp; trade services</h3><p>Roofing, construction and handwerker — losing jobs to firms with worse work but better ads?</p></div></div></div>
+      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>Moving &amp; relocation</h3><p>Every enquiry is a race. We help you win the jobs worth winning, at a cost per lead that holds.</p></div></div></div>
+      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>Health &amp; clinics</h3><p>Physio, dental and med — your care is excellent; your calendar should look like it.</p></div></div></div>
+      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Automotive &amp; recovery</h3><p>Towing, roadside and auto services — be the first call the moment something goes wrong.</p></div></div></div>
+      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>Training &amp; courses</h3><p>First-aid, safety and skills training — fill seats without discounting the course to death.</p></div></div></div>
+      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>E-commerce &amp; retail</h3><p>Traffic was never the problem. We tune the feed and the funnel so more of it actually buys.</p></div></div></div>
     </div>
   </div>
 </section>
