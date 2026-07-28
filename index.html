@@ -199,8 +199,9 @@ section{position:relative;z-index:1}
 .person .link:hover svg{transform:translate(2px,-2px)}
 
 /* proof */
-.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-@media(max-width:560px){.proof{grid-template-columns:1fr}}
+.proof{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.proof>.quote{flex:1 1 320px;max-width:380px}
+@media(max-width:560px){.proof>.quote{flex-basis:100%}}
 .quote .core{display:flex;flex-direction:column;gap:16px;min-height:100%}
 .quote .stars{color:var(--warn);font-size:13px;letter-spacing:2px}
 .quote p{font-size:14.5px;color:var(--ink);line-height:1.6;flex:1}
@@ -615,6 +616,11 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         <div class="by"><b>David Lawson</b> · CEO, Visionary Ads</div>
       </div></div></div>
       <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"An exceptional performance marketer with a data-first approach on every campaign — always optimised for ROI. He identifies growth opportunities, scales campaigns efficiently, and takes full ownership of the outcome. Highly recommend him to anyone looking to drive real business impact."</p>
+        <div class="by"><b>Performance marketing</b> · LinkedIn recommendation</div>
+      </div></div></div>
+      <div class="quote rv d2"><div class="shell" style="height:100%"><div class="core">
         <div class="stars">★★★★★</div>
         <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years. Genuinely effective at growing a brand's search visibility."</p>
         <div class="by"><b>Long-term SEO client</b> · Professional services</div>
