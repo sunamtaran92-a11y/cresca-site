@@ -146,8 +146,9 @@ section{position:relative;z-index:1}
 .big-quote span{color:var(--acc2)}
 
 /* how we work */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
 .step .k{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--acc);letter-spacing:.1em}
 .step h3{font-size:21px;margin:14px 0 10px}
 .step p{color:var(--mut);font-size:14.5px}
@@ -198,8 +199,8 @@ section{position:relative;z-index:1}
 .person .link:hover svg{transform:translate(2px,-2px)}
 
 /* proof */
-.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:860px){.proof{grid-template-columns:1fr}}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+@media(max-width:560px){.proof{grid-template-columns:1fr}}
 .quote .core{display:flex;flex-direction:column;gap:16px;min-height:100%}
 .quote .stars{color:var(--warn);font-size:13px;letter-spacing:2px}
 .quote p{font-size:14.5px;color:var(--ink);line-height:1.6;flex:1}
@@ -288,6 +289,35 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .vidfeat{margin:14px auto 0;max-width:760px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}
 .vidfeat iframe{width:100%;height:100%;border:0;display:block}
 .vidcap{font-size:11.5px;color:var(--dim);margin-top:12px;text-align:center}
+/* comparison */
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+@media(max-width:860px){.cmp{grid-template-columns:1fr}}
+.cmp .core{padding:24px;display:flex;flex-direction:column;gap:14px;height:100%}
+.cmp .lbl2{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);font-weight:600}
+.cmpcol.win .shell{border-color:rgba(142,162,255,.4)}
+.cmpcol.win .core{background:radial-gradient(120% 120% at 50% 0%,rgba(142,162,255,.10),transparent 60%),var(--bg2)}
+.cmp h3{font-size:18px}
+.cmp ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.cmp li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--mut);line-height:1.5}
+.cmp li.g{color:var(--ink)}
+.cmp .ck{flex:0 0 18px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.cmp .ck svg{width:10px;height:10px;stroke-width:2.6;fill:none;stroke-linecap:round}
+.cmp .ck.x{background:rgba(255,140,140,.12);border:1px solid rgba(255,140,140,.3)}.cmp .ck.x svg{stroke:#ff9b9b}
+.cmp .ck.c{background:rgba(127,224,194,.14);border:1px solid rgba(127,224,194,.35)}.cmp .ck.c svg{stroke:var(--em)}
+/* who it's for */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+@media(max-width:760px){.fit{grid-template-columns:1fr}}
+.fit .core{padding:26px;height:100%}
+.fit h3{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.fit ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.fit li{font-size:14px;color:var(--mut);line-height:1.55;padding-left:22px;position:relative}
+.fit .good li:before{content:"✓";color:var(--em);position:absolute;left:0;top:0;font-weight:700}
+.fit .no li:before{content:"✕";color:#ff9b9b;position:absolute;left:0;top:0;font-weight:700}
+.fit-note{font-size:12px;color:var(--dim);margin-top:18px;text-align:center}
+/* rating */
+.rating{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.rating .st{color:var(--warn);font-size:17px;letter-spacing:2px}
+.rating .rt{font-size:13.5px;color:var(--mut)}
 </style>
 </head>
 <body>
@@ -370,13 +400,57 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 <section class="pad-s">
   <div class="wrap">
     <div class="sechead rv">
-      <span class="eyebrow"><span class="dot"></span>How Cresca works</span>
-      <h2>One team. Direct access.<br>Nothing lost between hands.</h2>
+      <span class="eyebrow"><span class="dot"></span>Why one small team</span>
+      <h2>You've probably tried<br>one of these already.</h2>
+      <p>Most growing businesses reach for freelancers or a full agency first. Here's why both tend to stall — and what changes when a small senior team owns the whole picture.</p>
+    </div>
+    <div class="cmp">
+      <div class="cmpcol rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="lbl2">In-house or freelancers</div>
+        <h3>One person, five jobs</h3>
+        <ul>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Every channel lives with a different person, and none of them share a plan.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>You end up coordinating the work — the job you hired out in the first place.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Lose one freelancer and you're re-hiring and re-explaining from scratch.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Plenty of activity, but no single owner of the revenue number.</li>
+        </ul>
+      </div></div></div>
+      <div class="cmpcol rv d2"><div class="shell" style="height:100%"><div class="core">
+        <div class="lbl2">A traditional agency</div>
+        <h3>Sold a senior, handed a junior</h3>
+        <ul>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>A polished pitch, then a junior you've never met runs the day-to-day.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>One generic system rolled out across every account, regardless of fit.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Monthly decks full of reach and clicks, thin on euros earned.</li>
+          <li><span class="ck x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>A long contract that quietly assumes it's working.</li>
+        </ul>
+      </div></div></div>
+      <div class="cmpcol win rv d3"><div class="shell" style="height:100%"><div class="core">
+        <div class="lbl2" style="color:var(--acc)">Cresca</div>
+        <h3>Three specialists, one team</h3>
+        <ul>
+          <li class="g"><span class="ck c"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>The specialists running your ads, SEO and content are the ones on your calls.</li>
+          <li class="g"><span class="ck c"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Paid and organic built as one funnel, not three teams guarding turf.</li>
+          <li class="g"><span class="ck c"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>We track leads and cost per lead through to booked revenue.</li>
+          <li class="g"><span class="ck c"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>No lock-in — you continue because the results earn it.</li>
+        </ul>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad-s">
+  <div class="wrap">
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>How we work</span>
+      <h2>One team. Direct access.<br>A clear path to revenue.</h2>
+      <p>Strategy before spend, tracking before scale. The order is deliberate — and you talk to the same people the whole way.</p>
     </div>
     <div class="steps">
-      <div class="shell rv d1"><div class="core step"><div class="k">01</div><h3>One person who owns your account</h3><p>A dedicated account lead who's genuinely available — answers your questions, keeps everyone accountable, and makes sure nothing slips. You're never chasing an inbox.</p></div></div>
-      <div class="shell rv d2"><div class="core step"><div class="k">02</div><h3>Paid and organic, one revenue plan</h3><p>Ads, SEO and social content are planned together as a single funnel — the campaigns and the content that feeds them pull in the same direction, instead of three vendors optimising in isolation.</p></div></div>
-      <div class="shell rv d3"><div class="core step"><div class="k">03</div><h3>AI automation does the busywork</h3><p>We build AI-powered workflows that handle the repetitive operational work — reporting, budget and bid monitoring, conversion-tracking checks, lead routing. Less manual grind, fewer things slipping through, and more budget compounding into ROI.</p></div></div>
+      <div class="shell rv d1"><div class="core step"><div class="k">01 · Audit &amp; plan</div><h3>Find where the money leaks</h3><p>Before a euro moves, we audit the accounts, tracking, search terms and content — then map a plain-English plan to your revenue target. One point of contact owns it end to end.</p></div></div>
+      <div class="shell rv d2"><div class="core step"><div class="k">02 · Fix the foundation</div><h3>Tracking and funnel first</h3><p>We clean up conversion tracking, landing pages and lead routing so every euro spent afterwards has somewhere to land — and so the numbers you see are actually real.</p></div></div>
+      <div class="shell rv d3"><div class="core step"><div class="k">03 · Launch together</div><h3>Paid and organic as one system</h3><p>Ads bring buyers in now; SEO and social compound underneath. Campaigns and the content that feeds them launch as a single funnel, not siloed vendors.</p></div></div>
+      <div class="shell rv d4"><div class="core step"><div class="k">04 · Optimise &amp; scale</div><h3>Move budget to what works</h3><p>Weekly reviews, tighter targeting, and AI automation handling the busywork. Budget shifts from what's stalling to what's scaling, and the system keeps improving whether you're watching or not.</p></div></div>
     </div>
   </div>
 </section>
@@ -520,8 +594,9 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
     </div>
     <div class="dashnote">Anonymised screenshots from live Google Ads accounts under active management — client identifiers removed, numbers untouched. Full, un-masked walkthrough on your call.</div>
 
-    <div class="sechead rv" style="margin-top:64px;margin-bottom:36px">
+    <div class="sechead rv" style="margin-top:64px;margin-bottom:32px">
       <span class="eyebrow"><span class="dot"></span>What clients say</span>
+      <div class="rating"><span class="st">★★★★★</span><span class="rt">Real, unedited reviews from clients across social, SEO and paid.</span></div>
     </div>
     <div class="proof">
       <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
@@ -539,7 +614,43 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         <p>"Pritam stands out for seamless communication and reliability. Every project delivered on time with clear updates. He understood our brand immediately and required minimal revisions. A true professional who makes collaboration effortless."</p>
         <div class="by"><b>David Lawson</b> · CEO, Visionary Ads</div>
       </div></div></div>
+      <div class="quote rv d1"><div class="shell" style="height:100%"><div class="core">
+        <div class="stars">★★★★★</div>
+        <p>"A team with real experience and skill in SEO — our website reached page one and the rankings have stayed solid for years. Genuinely effective at growing a brand's search visibility."</p>
+        <div class="by"><b>Long-term SEO client</b> · Professional services</div>
+      </div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="pad-s">
+  <div class="wrap">
+    <div class="sechead rv">
+      <span class="eyebrow"><span class="dot"></span>Straight talk</span>
+      <h2>A fit for some.<br>Not for everyone.</h2>
+      <p>We take on a small number of clients so each one gets senior attention. That means being honest about who we do our best work with.</p>
+    </div>
+    <div class="fit">
+      <div class="shell rv d1" style="height:100%"><div class="core good">
+        <h3><span style="color:var(--em)">✓</span> A good fit if…</h3>
+        <ul>
+          <li>You've built a real business and marketing is the part that hasn't kept up.</li>
+          <li>You want the people doing the work to be the people you talk to.</li>
+          <li>You care about leads and revenue, not screenshots of impressions.</li>
+          <li>You're in it for a few quarters, not a 30-day miracle.</li>
+        </ul>
+      </div></div>
+      <div class="shell rv d2" style="height:100%"><div class="core no">
+        <h3><span style="color:#ff9b9b">✕</span> Probably not us if…</h3>
+        <ul>
+          <li>You're choosing purely on price and want the cheapest option going.</li>
+          <li>You want a pair of hands to run orders, with the strategy left to you.</li>
+          <li>You need results next week on tracking that was never set up.</li>
+          <li>You'd rather stay hands-off and never share access or feedback.</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="fit-note">We keep the client list short on purpose — it's how everyone stays senior on your work.</div>
   </div>
 </section>
 
