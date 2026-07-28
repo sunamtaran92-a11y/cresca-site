@@ -41,7 +41,8 @@ body{
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 @media(max-width:640px){.wrap{padding:0 18px}}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.03em;line-height:1.04}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.03em;line-height:1.04;text-wrap:balance}
+.sub,.sechead p,.eng p,.pain p,.step p{text-wrap:pretty}
 .ser{font-family:var(--ser);font-weight:400;font-style:italic;letter-spacing:-.01em}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;
   text-transform:uppercase;letter-spacing:.22em;color:var(--mut);
@@ -100,7 +101,7 @@ section{position:relative;z-index:1}
 .sechead p{color:var(--mut);font-size:17px;margin-top:18px;max-width:600px}
 
 /* hero */
-.hero{min-height:100dvh;display:flex;align-items:center;padding-top:120px}
+.hero{min-height:100dvh;display:flex;align-items:flex-start;padding:150px 0 48px}
 .hero h1{font-size:clamp(42px,8.5vw,92px);letter-spacing:-.04em}
 .hero h1 .ser{color:var(--acc2)}
 .hero .sub{color:var(--mut);font-size:clamp(16px,2.2vw,20px);max-width:560px;margin-top:26px}
@@ -320,7 +321,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .rating .st{color:var(--warn);font-size:17px;letter-spacing:2px}
 .rating .rt{font-size:13.5px;color:var(--mut)}
 /* trust strip */
-.trustwrap{position:relative;z-index:1;margin-top:-10px}
+.trustwrap{position:relative;z-index:2;margin-top:4px;margin-bottom:8px}
 .trustbar{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:space-between;
   padding:18px 24px;border:1px solid var(--line);background:var(--glass);border-radius:18px;
   box-shadow:0 8px 30px rgba(0,0,0,.25)}
@@ -699,12 +700,12 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
       <p>We've run real budgets in these verticals — so we start from what already works there, instead of learning on your money.</p>
     </div>
     <div class="inds">
-      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Home &amp; trade services</h3><p>Roofing, construction and handwerker — losing jobs to firms with worse work but better ads?</p></div></div></div>
-      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>Moving &amp; relocation</h3><p>Every enquiry is a race. We help you win the jobs worth winning, at a cost per lead that holds.</p></div></div></div>
-      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>Health &amp; clinics</h3><p>Physio, dental and med — your care is excellent; your calendar should look like it.</p></div></div></div>
-      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Automotive &amp; recovery</h3><p>Towing, roadside and auto services — be the first call the moment something goes wrong.</p></div></div></div>
-      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>Training &amp; courses</h3><p>First-aid, safety and skills training — fill seats without discounting the course to death.</p></div></div></div>
-      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>E-commerce &amp; retail</h3><p>Traffic was never the problem. We tune the feed and the funnel so more of it actually buys.</p></div></div></div>
+      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Moving &amp; relocation</h3><p>Movers are our biggest book. Every enquiry is a race — we help you win the jobs worth booking, at a cost per lead that holds.</p></div></div></div>
+      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>House clearance &amp; disposal</h3><p>Entrümpelung, Auflösung and Entsorgung — turn "just after a quote" into booked pickups, not tyre-kickers.</p></div></div></div>
+      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>Home &amp; trade services</h3><p>Handwerker, Bau, flooring, kitchens — win work from firms with worse craft but better ads.</p></div></div></div>
+      <div class="ind rv d1"><div class="shell" style="height:100%"><div class="core"><h3>Cleaning &amp; facility services</h3><p>Reinigung and Gebäudeservice — fill the calendar with recurring contracts, not one-offs.</p></div></div></div>
+      <div class="ind rv d2"><div class="shell" style="height:100%"><div class="core"><h3>Automotive &amp; vehicle services</h3><p>Towing, KFZ appraisals and no-parking permits — be the first call the moment something goes wrong.</p></div></div></div>
+      <div class="ind rv d3"><div class="shell" style="height:100%"><div class="core"><h3>Health &amp; clinics</h3><p>Physio, dental and wound care — your treatment is excellent; your booked calendar should show it.</p></div></div></div>
     </div>
   </div>
 </section>
