@@ -1,6 +1,6 @@
 # Cresca
 
-> Cresca is a marketing team for founders, CEOs and co-founders building a business online. It runs paid advertising, social media and video, and SEO as one connected system, and reports on leads and booked revenue rather than impressions.
+> Cresca is a marketing team that runs paid advertising, social media and video, and SEO as one connected system, reporting on leads and booked revenue rather than impressions. It serves two distinct client types: founders and creators building a business online, and owner-led service businesses that need local demand.
 
 **Website:** https://cresca.agency/
 **Contact:** hello@cresca.agency
@@ -15,7 +15,12 @@
 
 ## Who it is for
 
-Founders, CEOs and co-founders of owner-led businesses growing online, where marketing is the part that hasn't kept up and the founder doesn't want to coordinate several separate freelancers.
+Two distinct client types:
+
+1. **Founders, CEOs, co-founders and creators building a business online** — growing an audience and a business at once. Work is social strategy, short- and long-form video, and paid social that converts attention into revenue.
+2. **Owner-led service businesses that need local demand** — real-world services competing for every enquiry. Work is Google Ads, local SEO, call tracking and lead-gen landing pages, aimed at a cost per lead that leaves a margin.
+
+Common to both: the founder still makes the marketing decisions and does not want to coordinate several separate freelancers.
 
 Cresca is a poor fit for buyers choosing purely on lowest price, for those wanting execution-only hands with strategy left to them, or for anyone needing results within a week on tracking that was never set up.
 
@@ -39,9 +44,11 @@ Germany, Austria and Switzerland (DACH), the United Kingdom, Ireland, the United
 
 Live, anonymised Google Ads dashboards are published on the site as evidence (client identifiers removed, numbers untouched).
 
-## Industries with the most experience
+## Where the paid-media track record comes from
 
-Moving and relocation; house clearance and disposal (Entrümpelung, Auflösung, Entsorgung); home and trade services (Handwerker, Bau); cleaning and facility services (Reinigung, Gebäudeservice); automotive and vehicle services; health and clinics.
+Most managed ad spend to date has run in competitive German service verticals: moving and relocation; house clearance and disposal (Entrümpelung, Auflösung, Entsorgung); home and trade services (Handwerker, Bau); cleaning and facility services (Reinigung, Gebäudeservice); automotive and vehicle services; health and clinics.
+
+These verticals are the evidence base for the paid-media discipline, not a restriction on who Cresca accepts as a client. The creator- and founder-facing work is evidenced separately by 150M+ views generated and 500+ videos shipped.
 
 ## Pricing
 
