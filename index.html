@@ -1018,18 +1018,8 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .faqans p{margin:0 0 10px}
 .faqans p:last-child{margin-bottom:0}
 .faqans strong{color:var(--ink);font-weight:600}
-/* accordion content: prevent the answer teleporting in */
-@supports selector(::details-content){
-  html{interpolate-size:allow-keywords}
-  .faqitem::details-content{
-    block-size:0;overflow:hidden;opacity:0;
-    transition:block-size .26s var(--e),opacity .2s ease-out,content-visibility .26s;
-    transition-behavior:allow-discrete;
-  }
-  .faqitem[open]::details-content{block-size:auto;opacity:1}
-}
 @media(max-width:640px){.faqitem summary{font-size:16px;padding:18px 48px 18px 18px}.faqans{padding:0 18px 18px;font-size:15px}}
-@media(prefers-reduced-motion:reduce){.faqitem,.faqitem summary::after{transition:none}.faqitem::details-content{transition:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.faqitem,.faqitem summary::after{transition:none}}
 </style>
 
 <section class="pad" id="faq">
