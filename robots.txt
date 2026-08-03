@@ -1,3 +1,70 @@
+# cresca.agency
+# Cresca — paid ads, social media, video and SEO for founders and CEOs.
+
 User-agent: *
 Allow: /
+
+# --- Answer engines / AI search ---
+# Explicitly allowed so Cresca can be surfaced and cited in AI answers.
+
+# OpenAI — ChatGPT search results
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI — user-initiated page visits from ChatGPT
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI — model training
+User-agent: GPTBot
+Allow: /
+
+# Anthropic — Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — AI Overviews / AI Mode / Gemini grounding
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing generative search
+User-agent: bingbot
+Allow: /
+
+# Common Crawl (a training corpus used by several models)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://cresca.agency/sitemap.xml
