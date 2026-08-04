@@ -573,6 +573,11 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
 .lb-hint{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:11.5px;color:var(--dim)}
 @media(max-width:640px){.lb{padding:14px}.lb img{max-height:74vh}}
 @media(prefers-reduced-motion:reduce){.lb,.lb figure{transition:none}}
+.ba-head{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:-.015em;color:var(--ink);margin-top:34px}
+.ba-head span{color:var(--em)}
+.ba-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.ba-badge.before{color:#ff9b9b;background:rgba(255,120,120,.10);border:1px solid rgba(255,120,120,.30)}
+.ba-badge.after{color:var(--em);background:rgba(127,224,194,.10);border:1px solid rgba(127,224,194,.30)}
 .dashwrap{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
 @media(max-width:960px){.dashwrap{grid-template-columns:1fr}}
 .dashframe{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);
@@ -959,10 +964,18 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line2);margin-top:0}
         <img src="dash-acct-2.png" alt="Google Ads account overview showing 135 conversions at €5.01 cost per conversion over 30 days" loading="lazy" data-zoom tabindex="0" role="button" aria-label="Enlarge this dashboard screenshot">
         <div class="dashres"><span>€5.01 <em>cost per lead</em></span><span>135 <em>leads in 30 days</em></span></div><div class="dashcap"><b>Construction &amp; building services.</b> Search focused on high-intent local job terms, with call tracking on every ad so quote requests came through the phone and form.</div>
       </div>
-      <div class="dashframe rv d3">
-        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div></div>
+    </div>
+    <div class="ba-head rv">Same account, five months apart — <span>tracking rebuilt, then scaled</span></div>
+    <div class="dashwrap" style="margin-top:14px">
+      <div class="dashframe rv d1">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Campaigns</div><span class="ba-badge before">Before · Jan 2026</span></div>
+        <img src="dash-hanse-before.png" alt="Google Ads campaigns view for January 2026: 3 conversions from 505 clicks, €2,347 cost, €782.33 cost per conversion" loading="lazy" data-zoom tabindex="0" role="button" aria-label="Enlarge this dashboard screenshot">
+        <div class="dashres"><span>€782.33 <em>cost per lead</em></span><span>3 <em>leads</em></span><span>505 <em>clicks</em></span></div><div class="dashcap"><b>Moving &amp; relocation — before.</b> 505 clicks, 3 tracked enquiries. Broken measurement, not bad advertising: the spend was working, the account just couldn't see it.</div>
+      </div>
+      <div class="dashframe rv d2">
+        <div class="dashbar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ads.google.com › Overview</div><span class="ba-badge after">After · Jun 2026</span></div>
         <img src="dash-acct-3.png" alt="Google Ads account overview for June 2026 showing 407 clicks, €3.84k cost and €49.28 cost per conversion" loading="lazy" data-zoom tabindex="0" role="button" aria-label="Enlarge this dashboard screenshot">
-        <div class="dashres"><span>€49.28 <em>cost per lead</em></span><span>€3.84k <em>spend</em></span><span>407 <em>clicks</em></span></div><div class="dashcap"><b>Moving &amp; relocation.</b> June 2026, straight from the platform — search built around booked moves in a contested metro, with bidding pointed at completed enquiries rather than clicks.</div>
+        <div class="dashres"><span>€49.28 <em>cost per lead</em></span><span>−94% <em>cost per lead</em></span><span>€3.84k <em>spend</em></span></div><div class="dashcap"><b>Moving &amp; relocation — after.</b> Tracking rebuilt, relaunched in April, and by June every enquiry was measured — cost per lead down 94%, at similar monthly spend.</div>
       </div>
     </div>
     <div class="dashwrap" style="margin-top:22px">
