@@ -13,6 +13,18 @@
 - **SEO and organic** — Technical SEO, keyword and content strategy, on-page work and backlinks.
 - **AI automation** — Workflows for conversion tracking, attribution, automated reporting, budget and bid checks, and lead routing.
 
+## Nonprofit practice (US 501(c)(3))
+
+Page: https://cresca.agency/nonprofits.html
+
+- Google Ad Grant setup, rescue and management (flat fee, never a percentage of the grant); used for reach: patients, families, event registrations, sign-ups.
+- Paid Search and Meta for donations and supporter list growth, reported on ROAS, cost per donation and cost per lead.
+- Awareness-month and walk / peer-to-peer campaign engines (landing page, ads, email, short-form video).
+- Website and donation-flow rebuilds: WCAG 2.1 AA, mobile donation conversion, CRM and payment integration (Blackbaud, Bloomerang, Neon One, Fundraise Up, Givebutter), GA4, training and post-launch support.
+- Email and CRM automation for first-time donor retention and year-end.
+- Video and impact content.
+- Entry point: a free one-page Ad Grant and donation-flow audit, delivered within five business days.
+
 ## Who it is for
 
 Two distinct client types:
